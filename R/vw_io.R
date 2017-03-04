@@ -12,7 +12,11 @@ vw_dt = function(DT, y, x, tag, precision = '%.5f',
   col_format = paste0('%s:', precision)
   DT[ , {
     coln_to_vw = function(vn) { 
-      sprintf(col_format, vn, transformation(get(vn)))
+      if (is.numeric(get(vn))) {
+        sprintf(col_format, vn, transformation(get(vn))) 
+      } else {
+        sprintf('%s:%s', vn, transformation(get(vn))) 
+      }
     }
     c(list(y = eval(ysub), 
            l = sprintf('%s|', eval(tsub))), 
