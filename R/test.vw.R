@@ -1,7 +1,7 @@
 #logic mostly adopted from test.data.table()
 
 test.vw <- function(...) {
-  test_dir = getNamespaceInfo("vw", "path") %+% "/tests/"
+  test_dir = paste0(getNamespaceInfo("vw", "path"), "/tests/")
   olddir = setwd(test_dir)
   on.exit(setwd(olddir))
   cat("Running tests of `vw`")

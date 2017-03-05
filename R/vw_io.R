@@ -15,6 +15,7 @@ vw_dt = function(DT, y, x, tag, precision = '%.5f',
   if (missing(tag)) tag = character(nrow(DT))
   tsub = substitute(tag)
   if (missing(x)) x = setdiff(names(DT), as.character(ysub))
+  if (!length(x)) stop('No independent variables found')
   col_format = paste0('%s:', precision)
   DT[ , {
     coln_to_vw = function(vn) { 

@@ -1,3 +1,5 @@
 export(to_vw, vw_dt)
 
+export(test.vw)
+
 import(data.table)
