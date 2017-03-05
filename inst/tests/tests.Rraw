@@ -1,4 +1,7 @@
 #naming convention:
 #  function.FEATURE/argument.number, e.g.
 
-test <- vw:::test
+test = vw:::test
+
+boston = fread('boston_housing.csv')
+
