@@ -5,6 +5,12 @@ to_vw = function(DT, file, ...) {
 
 vw_dt = function(DT, y, x, tag, precision = '%.5f',
                  transformation = identity) {
+  if (!is.data.table(DT)) {
+    warning('Input not a data.table; forcing using ', 
+            'as.data.table, which requires making a copy. ',
+            'Use setDT on your input to avoid this.')
+    DT = as.data.table(DT)
+  }
   ysub = substitute(y)
   if (missing(tag)) tag = character(nrow(DT))
   tsub = substitute(tag)

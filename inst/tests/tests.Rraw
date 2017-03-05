@@ -3,5 +3,19 @@
 
 test = vw:::test
 
+# ***TESTS OF vw***
+
+testDT = data.table(y = c(0.06, 1.88, 1.59, 0.27, 1.99,
+                          0.71, 0.06, 0.49, 0.07, -1.84),
+                    x1 = c(0.94, 1.74, 0.11, -1.26, 0.46,
+                           -0.93, 1.62, -1.28, -0.65, -2.22),
+                    x2 = c(0.74, -0.98, 0.44, -0.75, 0.07, 0.02,
+                          -0.56, -0.11, -0.95, -1.63))
+
+setDF(testDT)    
+test('vw_dt.CHECKDT.1', vw_dt(testDT, y, "x1"), 
+     warning = "not a data.table")
+setDT(testDT)
+
 boston = fread('boston_housing.csv')
 

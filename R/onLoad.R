@@ -1,7 +1,7 @@
 # for setting options & assigning any packing internal variables
 
 .onLoad <- function(libname, pkgname) {
-  if (system('which vw')) {
+  if (system('which vw', ignore.stdout = TRUE)) {
     warning(paste('vw command line utility not found -- train/test',
                   'functionality will not work. I/O tools still available.'))
   }
