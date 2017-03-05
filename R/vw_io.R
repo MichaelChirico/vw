@@ -15,7 +15,7 @@ vw_dt = function(DT, y, x, tag, precision = '%.5f',
       if (is.numeric(get(vn))) {
         sprintf(col_format, vn, transformation(get(vn))) 
       } else {
-        sprintf('%s:%s', vn, transformation(get(vn))) 
+        sprintf('%s:%s', vn, get(vn)) 
       }
     }
     c(list(y = eval(ysub), 
